@@ -1,0 +1,41 @@
+{
+  "name": "soketi-cloudflare-do",
+  "private": true,
+  "type": "module",
+  "cloudflare": {
+    "bindings": {
+      "PUSHER_APP_ID": {
+        "description": "Laravel/Pusher app ID for the broadcaster instance."
+      },
+      "PUSHER_APP_KEY": {
+        "description": "Public app key used by Laravel Echo and pusher-js clients."
+      },
+      "PUSHER_APP_SECRET": {
+        "description": "Server-side app secret used to verify signed publish requests."
+      },
+      "PUSHER_ENABLE_USER_AUTHENTICATION": {
+        "description": "Optional. Set to `true` to require `pusher:signin` or an authenticated private/presence subscription before the timeout expires."
+      },
+      "USER_AUTHENTICATION_TIMEOUT_MS": {
+        "description": "Optional. Override the user-auth timeout in milliseconds. Defaults to `30000`."
+      },
+      "APPS_JSON": {
+        "description": "Optional JSON array for multi-app mode, for example `[{\"id\":\"app-id\",\"key\":\"app-key\",\"secret\":\"app-secret\"}]`."
+      }
+    }
+  },
+  "scripts": {
+    "dev": "wrangler dev --ip 127.0.0.1 --port 8787",
+    "check": "wrangler check",
+    "deploy": "wrangler deploy",
+    "types": "wrangler types",
+    "test:integration": "node ./scripts/integration-test.mjs",
+    "test:remote": "WRANGLER_REMOTE=1 node ./scripts/integration-test.mjs"
+  },
+  "devDependencies": {
+    "laravel-echo": "^2.2.4",
+    "pusher": "^5.2.0",
+    "pusher-js": "^8.4.0",
+    "wrangler": "^4.84.0"
+  }
+}

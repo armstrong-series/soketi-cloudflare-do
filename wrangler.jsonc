@@ -1,0 +1,29 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "soketi-cloudflare-do",
+  "main": "./src/index.ts",
+  "compatibility_date": "2026-04-21",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "APP_GATEWAY",
+        "class_name": "AppGateway"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "AppGateway"
+      ]
+    }
+  ],
+  "dev": {
+    "port": 8787,
+    "local_protocol": "http"
+  }
+}
